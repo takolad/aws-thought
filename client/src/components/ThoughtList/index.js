@@ -23,6 +23,15 @@ const ThoughtList = ({ thoughts, title }) => {
               </Link>{" "}
             </p>
             {thought.thought && <p className="px-2 mt-2">{thought.thought}</p>}
+            {thought.image && (
+              <p className="px-2">
+                <img
+                  className="mt-3 ml-4 thought-image"
+                  src={thought.image}
+                  alt="S3 bucket response"
+                />
+              </p>
+            )}
           </div>
         ))}
     </div>

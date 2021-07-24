@@ -18,11 +18,7 @@ const Profile = (props) => {
       try {
         const res = await fetch(`/api/users/${userParam}`);
         const data = await res.json();
-        console.log(data);
-        const fixedData = data.map((thought) => {
-          return { ...thought, username: userParam };
-        });
-        setThoughts([...fixedData]);
+        setThoughts([...data]);
         setIsLoaded(true);
       } catch (error) {
         console.log(error);
