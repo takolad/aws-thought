@@ -34,11 +34,12 @@ router.get("/users/:username", (req, res) => {
       "#un": "username", // aliases (best practice, to avoid reserved words)
       "#ca": "createdAt",
       "#th": "thought",
+      "#img": "image",
     },
     ExpressionAttributeValues: {
       ":user": req.params.username,
     },
-    ProjectionExpression: "#th, #ca", // similar to SELECT in SQL
+    ProjectionExpression: "#un, #th, #ca, #img", // similar to SELECT in SQL
     ScanIndexFoward: false, // DESC
   };
 
@@ -60,6 +61,7 @@ router.post("/users", (req, res) => {
       username: req.body.username,
       createdAt: Date.now(),
       thought: req.body.thought,
+      image: req.body.image,
     },
   };
 
